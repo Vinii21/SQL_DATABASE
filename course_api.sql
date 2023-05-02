@@ -70,3 +70,4 @@ INSERT INTO users_courses (user_id, course_id) VALUES (1,6), (2,7), (3,8), (4,9)
 SELECT * FROM users;
 SELECT courses.title, courses.description, levels.level_name, categories.category_name, course_video.course_title, course_video.url FROM courses JOIN levels ON courses.level_id=levels.id JOIN categories ON courses.category_id=categories.id JOIN course_video ON courses.course_video_id=course_video.id;
 SELECT users.name, users.email, users.password, users.age, roles.role_name FROM users JOIN roles ON users.role_id=roles.id;
+SELECT * FROM users_courses;
