@@ -57,5 +57,16 @@ ALTER TABLE "users_courses" ADD FOREIGN KEY ("course_id") REFERENCES "courses" (
 
 /* CÓDIGO SQL PARA LOS INSERT DE CADA TABLA*/
 
+INSERT INTO levels (level_name) VALUES ('Benniger'), ('Intermediate'), ('Advanced');
+INSERT INTO categories (category_name) VALUES ('Frontend'), ('Backend'), ('Marketing');
+INSERT INTO course_video (course_title, url) VALUES ('HTML', 'url 1'), ('CSS', 'url 2'), ('PHP', 'url 3'), ('NODEjs', 'url 4'), ('Neuromarketing', 'url 5');
+INSERT INTO courses (title, description, level_id, category_id, course_video_id) VALUES ('HTML', 'HTML without boundaries from zero to expert', 1, 1, 1), ('CSS', 'CSS without boundaries from zero to expert', 2, 1, 2), ('PHP', 'PHP without boundaries from zero to expert', 2,2,3), ('NODEjs', 'JavaScript NodeJs without borders',3,2,4),('Marketing','The best strategy to sell in social networks',2,3,5);
+INSERT INTO roles (role_name) VALUES ('student'), ('teacher'), ('admin');
+INSERT INTO users (name, email, password, age, role_id) VALUES ('naruto', 'narutouz@gmail.com', 'uzumaki123', 17, 1), ('kakashi', 'kashi@gmail.com', 'sharingan123', 32, 2), ('minato', 'minato4@gmail.com', 'kushina123', 40, 3), ('tanjiro', 'tanji@gmail.com', 'nezuko123', 16, 1), ('oscar', 'oscar@gmail.com', 'teacher123', 23, 2), ('Shana', 'shana123@gmail.com', 'seles123', 23, 1);
+INSERT INTO users_courses (user_id, course_id) VALUES (1,6), (2,7), (3,8), (4,9), (5,10), (6,7);
 
 /* CÓDIGO SQL PARA LAS CONSULTAS Y COMPROVAR LOS DATOS */
+
+SELECT * FROM users;
+SELECT courses.title, courses.description, levels.level_name, categories.category_name, course_video.course_title, course_video.url FROM courses JOIN levels ON courses.level_id=levels.id JOIN categories ON courses.category_id=categories.id JOIN course_video ON courses.course_video_id=course_video.id;
+SELECT users.name, users.email, users.password, users.age, roles.role_name FROM users JOIN roles ON users.role_id=roles.id;
